@@ -1,5 +1,5 @@
 """Create database models to represent tables."""
-from books_app import db
+from books_app.extensions import db
 from sqlalchemy.orm import backref
 from flask_login import UserMixin
 import enum
@@ -84,7 +84,7 @@ book_genre_table = db.Table('book_genre',
 )
 
 
-class User(db.Model):
+class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), nullable=False, unique=True)
     password = db.Column(db.String(200), nullable=False)
