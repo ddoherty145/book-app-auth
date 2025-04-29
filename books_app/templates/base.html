@@ -11,17 +11,17 @@
             <nav>
                 <a href="/">Home</a>
                 <div>
-                    <!-- TODO: Only show these links if the current user is 
-                        authenticated (logged in)! -->
-                    <a href="/create_book">Create Book</a>
-                    <a href="/create_author">Create Author</a>
-                    <a href="/create_genre">Create Genre</a>
-                    <a href="/logout">Log Out</a>
-
-                    <!-- TODO: Only show these links if the current user is NOT
-                        authenticated (logged in)! -->
-                    <a href="/signup">Sign Up</a>
-                    <a href="/login">Log In</a>
+                    {% if current_user.is_authenticated %}
+                        <!-- Links shown only to authenticated users -->
+                        <a href="/create_book">Create Book</a>
+                        <a href="/create_author">Create Author</a>
+                        <a href="/create_genre">Create Genre</a>
+                        <a href="/logout">Log Out</a>
+                    {% else %}
+                        <!-- Links shown only to non-authenticated users -->
+                        <a href="/signup">Sign Up</a>
+                        <a href="/login">Log In</a>
+                    {% endif %}
                 </div>
             </nav>
 

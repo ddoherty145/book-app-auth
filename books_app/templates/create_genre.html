@@ -2,8 +2,13 @@
 
 {% block content %}
 
-<p>Genre creation form.</p>
+<h2>Create a New Genre</h2>
 
-<!-- TODO: Add a <form> element here and use the form variable to show the labels & fields -->
+<form method="POST" action="{{ url_for('auth.create_genre') }}">
+    <label for="name">Genre Name:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+    
+    <button type="submit">Create Genre</button>
+</form>
 
 {% endblock %}
